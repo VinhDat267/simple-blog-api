@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.blogapi.dto.CommentCreateRequest;
+import com.example.blogapi.dto.CommentResponse;
 import com.example.blogapi.entity.Comment;
 import com.example.blogapi.service.CommentService;
 
@@ -26,30 +27,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class CommentController {
     private final CommentService commentService;
 
-    @GetMapping
-    public ResponseEntity<List<Comment>> getCommentsByPostId(@PathVariable Long postId) {
-        List<Comment> comments = commentService.getCommentByPostId(postId);
-        return ResponseEntity.ok(comments);
-    }
-
     @PostMapping
-    public ResponseEntity<Comment> createComment(
+    public ResponseEntity<CommentResponse> createComment(
             @PathVariable Long postId,
             @Valid @RequestBody CommentCreateRequest request) {
-        // TODO: Replace with actual authenticated user ID from security context
-        Long currentUserId = 1L; // This should come from authentication
-        Comment createdComment = commentService.creatComment(postId, currentUserId, request);
+        Long currentUserId = 1L;
+        CommentResponse createdComment = commentService.createComment(postId, currentUserId, request);
         return new ResponseEntity<>(createdComment, HttpStatus.CREATED);
-    }
-
-    @DeleteMapping("/{commentId}")
-    public ResponseEntity<Void> deleteComment(
-            @PathVariable Long postId,
-            @PathVariable Long commentId) {
-
-        commentService.deleteComment(postId, commentId);
-        return ResponseEntity.noContent().build();
-
     }
 
 }

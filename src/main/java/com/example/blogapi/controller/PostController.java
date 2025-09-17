@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.blogapi.dto.PostCreateRequest;
+import com.example.blogapi.dto.PostResponse;
 import com.example.blogapi.entity.Post;
 
 import com.example.blogapi.service.PostService;
@@ -22,9 +23,8 @@ public class PostController {
     private final PostService postService;
 
     @PostMapping
-    public ResponseEntity<Post> createPost(@Valid @RequestBody PostCreateRequest request) {
-        // Use postService to create post (implementation needed)
-        Post createdPost = postService.createPost(request);
+    public ResponseEntity<PostResponse> createPost(@Valid @RequestBody PostCreateRequest request) {
+        PostResponse createdPost = postService.createPost(request);
         return new ResponseEntity<>(createdPost, HttpStatus.CREATED);
     }
 
