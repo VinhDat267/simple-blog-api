@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.blogapi.dto.PostCreateRequest;
 import com.example.blogapi.dto.PostResponse;
-import com.example.blogapi.entity.Post;
 
 import com.example.blogapi.service.PostService;
 
