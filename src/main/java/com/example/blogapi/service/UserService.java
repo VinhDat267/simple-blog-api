@@ -1,5 +1,6 @@
 package com.example.blogapi.service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.blogapi.config.JwtProperties;
@@ -17,12 +18,13 @@ import lombok.extern.slf4j.Slf4j;
 public class UserService {
     private final UserRepository userRepository;
     private final JwtProperties jwtProperties;
+    private final PasswordEncoder passwordEncoder;
 
     public User createUser(UserCreateRequest request) {
         log.info("Creating user with username: {}", request.getUsername());
         User user = new User();
         user.setUsername(request.getUsername());
-        user.setPassword(request.getPassword());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRole("ROLE_USER");
         return userRepository.save(user);
     }
