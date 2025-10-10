@@ -9,6 +9,7 @@ import com.example.blogapi.entity.Comment;
 import com.example.blogapi.entity.Post;
 import com.example.blogapi.entity.User;
 import com.example.blogapi.exception.ResourceNotFoundException;
+import com.example.blogapi.mapper.CommentMapper;
 import com.example.blogapi.repository.CommentRepository;
 import com.example.blogapi.repository.PostRepository;
 import com.example.blogapi.repository.UserRepository;
@@ -23,6 +24,7 @@ public class CommentService {
     private final CommentRepository commentRepository;
     private final UserRepository userRepository;
     private final PostRepository postRepository;
+    private final CommentMapper commentMapper;
 
     @Transactional
     public CommentResponse createComment(Long postId, Long userId, CommentCreateRequest request) {
@@ -42,16 +44,7 @@ public class CommentService {
 
         Comment savedComment = commentRepository.save(comment);
 
-        return mapToCommentResponse(savedComment);
+        return commentMapper.toCommentResponse(savedComment);
     }
 
-    private CommentResponse mapToCommentResponse(Comment comment) {
-        CommentResponse response = new CommentResponse();
-        response.setId(comment.getId());
-        response.setBody(comment.getBody());
-        response.setCreatedAt(comment.getCreatedAt());
-        response.setAuthorUsername(comment.getAuthor().getUsername());
-        response.setPostId(comment.getPost().getId());
-        return response;
-    }
 }

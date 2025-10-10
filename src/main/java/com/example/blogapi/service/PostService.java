@@ -8,6 +8,7 @@ import com.example.blogapi.dto.PostResponse;
 import com.example.blogapi.entity.Post;
 import com.example.blogapi.entity.User;
 import com.example.blogapi.exception.ResourceNotFoundException;
+import com.example.blogapi.mapper.PostMapper;
 import com.example.blogapi.repository.PostRepository;
 import com.example.blogapi.repository.UserRepository;
 
@@ -21,6 +22,7 @@ public class PostService {
 
     private final PostRepository postRepository;
     private final UserRepository userRepository;
+    private final PostMapper postMapper;
 
     @Transactional
     public PostResponse createPost(PostCreateRequest request) {
@@ -38,18 +40,8 @@ public class PostService {
 
         log.info("Post created successfully with ID: {}", savePosted.getId());
 
-        return mapToPostResponse(savePosted);
+        return postMapper.toPostResponse(savePosted);
 
     }
 
-    private PostResponse mapToPostResponse(Post post) {
-        PostResponse response = new PostResponse();
-        response.setId(post.getId());
-        response.setTitle(post.getTitle());
-        response.setContent(post.getContent());
-        response.setAuthorUsername(post.getUser().getUsername());
-        response.setCreatedAt(post.getCreatedAt());
-
-        return response;
-    }
 }
