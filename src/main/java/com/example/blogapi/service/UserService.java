@@ -7,7 +7,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.blogapi.config.JwtProperties;
 import com.example.blogapi.dto.UserCreateRequest;
 import com.example.blogapi.dto.UserResponse;
 import com.example.blogapi.entity.User;
@@ -15,7 +14,6 @@ import com.example.blogapi.exception.ResourceNotFoundException;
 import com.example.blogapi.mapper.UserMapper;
 import com.example.blogapi.repository.UserRepository;
 
-import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

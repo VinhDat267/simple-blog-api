@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.blogapi.dto.UserCreateRequest;
+import com.example.blogapi.dto.UserResponse;
 import com.example.blogapi.entity.User;
 import com.example.blogapi.service.UserService;
 
@@ -21,8 +22,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<User> createUser(@RequestBody UserCreateRequest request) {
-        User newUser = userService.createUser(request);
+    public ResponseEntity<UserResponse> createUser(@RequestBody UserCreateRequest request) {
+        UserResponse newUser = userService.createUser(request);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 
