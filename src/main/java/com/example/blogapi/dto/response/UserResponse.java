@@ -1,4 +1,4 @@
-package com.example.blogapi.dto;
+package com.example.blogapi.dto.response;
 
 import lombok.Data;
 

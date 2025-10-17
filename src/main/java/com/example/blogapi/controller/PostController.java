@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.blogapi.dto.PostCreateRequest;
-import com.example.blogapi.dto.PostResponse;
-import com.example.blogapi.dto.PostUpdateRequest;
+import com.example.blogapi.dto.request.PostCreateRequest;
+import com.example.blogapi.dto.response.PostResponse;
+import com.example.blogapi.dto.request.PostUpdateRequest;
 import com.example.blogapi.service.PostService;
 
 import io.swagger.v3.oas.annotations.Operation;

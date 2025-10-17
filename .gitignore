@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+### Upgrade Plan ###
+UPGRADE_PLAN.md

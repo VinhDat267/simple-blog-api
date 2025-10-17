@@ -3,8 +3,8 @@ package com.example.blogapi.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.blogapi.dto.UserCreateRequest;
-import com.example.blogapi.dto.UserResponse;
+import com.example.blogapi.dto.request.UserCreateRequest;
+import com.example.blogapi.dto.response.UserResponse;
 import com.example.blogapi.service.UserService;
 
 import jakarta.validation.Valid;

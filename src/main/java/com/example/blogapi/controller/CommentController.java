@@ -3,9 +3,9 @@ package com.example.blogapi.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.blogapi.dto.CommentCreateRequest;
-import com.example.blogapi.dto.CommentResponse;
-import com.example.blogapi.dto.CommentUpdateRequest;
+import com.example.blogapi.dto.request.CommentCreateRequest;
+import com.example.blogapi.dto.response.CommentResponse;
+import com.example.blogapi.dto.request.CommentUpdateRequest;
 import com.example.blogapi.service.CommentService;
 
 import jakarta.validation.Valid;
@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController

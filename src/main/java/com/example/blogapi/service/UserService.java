@@ -7,8 +7,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.blogapi.dto.UserCreateRequest;
-import com.example.blogapi.dto.UserResponse;
+import com.example.blogapi.dto.request.UserCreateRequest;
+import com.example.blogapi.dto.response.UserResponse;
 import com.example.blogapi.entity.User;
 import com.example.blogapi.exception.ResourceNotFoundException;
 import com.example.blogapi.mapper.UserMapper;

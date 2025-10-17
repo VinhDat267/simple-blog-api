@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.blogapi.dto.PostCreateRequest;
-import com.example.blogapi.dto.PostResponse;
-import com.example.blogapi.dto.PostUpdateRequest;
+import com.example.blogapi.dto.request.PostCreateRequest;
+import com.example.blogapi.dto.response.PostResponse;
+import com.example.blogapi.dto.request.PostUpdateRequest;
 import com.example.blogapi.entity.Post;
 import com.example.blogapi.entity.User;
 import com.example.blogapi.exception.ResourceNotFoundException;

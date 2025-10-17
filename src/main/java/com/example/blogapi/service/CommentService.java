@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.blogapi.dto.CommentCreateRequest;
-import com.example.blogapi.dto.CommentResponse;
-import com.example.blogapi.dto.CommentUpdateRequest;
+import com.example.blogapi.dto.request.CommentCreateRequest;
+import com.example.blogapi.dto.response.CommentResponse;
+import com.example.blogapi.dto.request.CommentUpdateRequest;
 import com.example.blogapi.entity.Comment;
 import com.example.blogapi.entity.Post;
 import com.example.blogapi.entity.User;
@@ -66,8 +66,9 @@ public class CommentService {
 
         log.info("Updating  comment ID {} for post ID {}", commentId, postId);
 
-        Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy post với ID: " + postId));
+        if (!postRepository.existsById(postId)) {
+            throw new ResourceNotFoundException("Không tìm thấy post với ID: " + postId);
+        }
 
         Comment comment = commentRepository.findById(commentId)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy comment với ID " + commentId));
